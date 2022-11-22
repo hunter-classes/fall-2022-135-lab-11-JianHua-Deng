@@ -54,7 +54,6 @@ bool Network::addUser(std::string usrn, std::string dspn){
             if(following[row][col] == true){
                 connectionString += "\t\"@" + profiles[row].getUsername() + "\" -> \"@" + profiles[col].getUsername() + "\"\n";
                 if(firstTrue){
-                    std::cout << "It ran inner condition once" << "\n";
                     usrnstring += "\t\"@" + profiles[row].getUsername() + "\"\n";
                     firstTrue = false;
                 }//end inner if condition
