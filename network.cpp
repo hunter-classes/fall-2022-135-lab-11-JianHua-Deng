@@ -1,3 +1,4 @@
+#include <iostream>
 #include "network.h"
 
 //Constructor
@@ -43,3 +44,24 @@ bool Network::addUser(std::string usrn, std::string dspn){
         return false;
     }//end else codnition
  }//end follow function
+
+ void Network::printDot(){
+    std::string connectionString;
+    std::string usrnstring;
+    bool firstTrue = true;//This is to get the username every first time follow[row] is true is recognized
+    for(int row = 0; row < MAX_USERS; row++){
+        for(int col = 0; col < MAX_USERS; col++){
+            if(following[row][col] == true){
+                connectionString += "\t\"@" + profiles[row].getUsername() + "\" -> \"@" + profiles[col].getUsername() + "\"\n";
+                if(firstTrue){
+                    std::cout << "It ran inner condition once" << "\n";
+                    usrnstring += "\t\"@" + profiles[row].getUsername() + "\"\n";
+                    firstTrue = false;
+                }//end inner if condition
+            }//end if condition
+        }//end inner for loop
+        firstTrue = true;
+    }//end for loop
+    std::string finalString = "digraph {\n" + usrnstring + "\n" + connectionString + "}\n";
+    std::cout << finalString;
+ }//end printDot function

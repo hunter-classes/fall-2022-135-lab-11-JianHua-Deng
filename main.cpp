@@ -9,16 +9,22 @@ int main(){
 
     Network nw;
     std::cout << nw.addUser("mario", "Mario") << std::endl;     // true (1)
-    std::cout << nw.addUser("luigi", "Luigi") << std::endl;     // true (1)
 
-    std::cout << nw.addUser("mario", "Mario2") << std::endl;    // false (0)
-    std::cout << nw.addUser("mario 2", "Mario2") << std::endl;  // false (0)
-    std::cout << nw.addUser("mario-2", "Mario2") << std::endl;  // false (0)
+    Network nw2;
+    // add three users
+    nw2.addUser("mario", "Mario");
+    nw2.addUser("luigi", "Luigi");
+    nw2.addUser("yoshi", "Yoshi");
 
-    for(int i = 2; i < 20; i++){
-        std::cout << nw.addUser("mario" + std::to_string(i), "Mario" + std::to_string(i)) << std::endl;   // true (1)
-    }
-    std::cout << nw.addUser("yoshi", "Yoshi") << std::endl;     // false (0)
+    // make them follow each other
+    nw2.follow("mario", "luigi");
+    nw2.follow("mario", "yoshi");
+    nw2.follow("luigi", "mario");
+    nw2.follow("luigi", "yoshi");
+    nw2.follow("yoshi", "mario");
+    nw2.follow("yoshi", "luigi");
+
+    nw2.printDot();
 
     return 0;
 }
