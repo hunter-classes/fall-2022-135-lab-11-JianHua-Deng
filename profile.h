@@ -11,8 +11,8 @@ public:
     // Default Profile constructor (username="", displayname="")
     Profile();
     // Return username
-    std::string getUsername();
+    std::string getUsername() const;
     // Return name in the format: "displayname (@username)"
-    std::string getFullName();
+    std::string getFullName() const;
     void setDisplayName(std::string dspn);
 };

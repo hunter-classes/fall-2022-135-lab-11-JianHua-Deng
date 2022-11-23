@@ -64,3 +64,7 @@ bool Network::addUser(std::string usrn, std::string dspn){
     std::string finalString = "digraph {\n" + usrnstring + "\n" + connectionString + "}\n";
     std::cout << finalString;
  }//end printDot function
+
+ bool Network::getFollowing(int row, int col) const{
+    return following[row][col];
+ }//end getFollowing funcs

@@ -24,6 +24,19 @@ int main(){
     nw2.follow("yoshi", "mario");
     nw2.follow("yoshi", "luigi");
 
+        // add a user who does not follow others
+    nw2.addUser("wario", "Wario");
+    
+    // add clone users who follow @mario
+    for(int i = 2; i < 6; i++) {
+        std::string usrn = "mario" + std::to_string(i);
+        std::string dspn = "Mario " + std::to_string(i);
+        nw2.addUser(usrn, dspn);
+        nw2.follow(usrn, "mario");
+    }
+    // additionally, make @mario2 follow @luigi
+    nw2.follow("mario2", "luigi");
+
     nw2.printDot();
 
     return 0;

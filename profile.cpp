@@ -14,12 +14,12 @@ Profile::Profile(){
 }//end default Profile constructor
 
 // Return username
-std::string Profile::getUsername(){
+std::string Profile::getUsername() const{
     return username;
 }//end getUsername function
 
 // Return name in the format: "displayname (@username)"
-std::string Profile::getFullName(){
+std::string Profile::getFullName() const{
     return displayname + " " + "(@" + username + ")";
 }//end getFullName function
 

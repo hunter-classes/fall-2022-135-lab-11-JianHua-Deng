@@ -29,4 +29,5 @@ public:
   bool addUser(std::string usrn, std::string dspn);
   bool follow(std::string usrn1, std::string usrn2);
   void printDot();
+  bool getFollowing(int row, int col) const;
 };
